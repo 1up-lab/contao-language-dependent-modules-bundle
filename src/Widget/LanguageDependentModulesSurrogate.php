@@ -74,7 +74,11 @@ class LanguageDependentModulesSurrogate extends SelectMenu
                     );
                 }
 
-                $options[] = sprintf('<optgroup label="&nbsp;%s">%s</optgroup>', StringUtil::specialchars($key), implode('', $optionGroups));
+                $options[] = sprintf(
+                    '<optgroup label="&nbsp;%s">%s</optgroup>',
+                    StringUtil::specialchars($key),
+                    implode('', $optionGroups)
+                );
             }
         }
 
