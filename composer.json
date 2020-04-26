@@ -1,0 +1,50 @@
+{
+    "name": "oneup/contao-language-dependent-modules-bundle",
+    "type": "contao-bundle",
+    "description": "TODO",
+    "keywords": [
+        "DOTO"
+    ],
+    "homepage": "https://1up.io",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Greminger",
+            "email": "dg@1up.io",
+            "homepage": "https://1up.io",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "contao/core-bundle": "^4.9"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpstan/phpstan": "^0.12.10",
+        "phpunit/phpunit": "^8.5",
+        "symfony/var-dumper": "^4.4 || ^5.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "contao-manager-plugin": "Oneup\\Contao\\LanguageDependentModulesBundle\\ContaoManager\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "Oneup\\Contao\\LanguageDependentModulesBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Oneup\\Contao\\LanguageDependentModulesBundle\\Tests\\": "tests"
+        }
+    },
+    "support": {
+        "email": "hello@1up.io",
+        "issues": "https://github.com/1up-lab/contao-language-dependent-modules-bundle/issues",
+        "source": "https://github.com/1up-lab/contao-language-dependent-modules-bundle/issues"
+    }
+}
