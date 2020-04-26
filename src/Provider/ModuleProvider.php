@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Oneup\Contao\LanguageDependentModulesBundle\Dca\Provider;
+namespace Oneup\Contao\LanguageDependentModulesBundle\Provider;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\FetchMode;

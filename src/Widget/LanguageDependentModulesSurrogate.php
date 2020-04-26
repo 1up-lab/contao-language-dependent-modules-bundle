@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Oneup\Contao\LanguageDependentModulesBundle\Dca\Widget;
+namespace Oneup\Contao\LanguageDependentModulesBundle\Widget;
 
 use Contao\SelectMenu;
 use Contao\StringUtil;

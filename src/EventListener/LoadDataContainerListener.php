@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Oneup\Contao\LanguageDependentModulesBundle\EventListener;
 
 use Contao\CoreBundle\Routing\ScopeMatcher;
-use Oneup\Contao\LanguageDependentModulesBundle\Dca\Callback\SaveCallback;
-use Oneup\Contao\LanguageDependentModulesBundle\Dca\Provider\AvailableLanguageProvider;
-use Oneup\Contao\LanguageDependentModulesBundle\Dca\Provider\ModuleProvider;
+use Oneup\Contao\LanguageDependentModulesBundle\Provider\AvailableLanguageProvider;
+use Oneup\Contao\LanguageDependentModulesBundle\Provider\ModuleProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -40,7 +39,9 @@ class LoadDataContainerListener
 
         $fields = $GLOBALS['TL_DCA'][$table]['fields'];
 
-        if (!\is_array($fields) || !\in_array('languageDependentModulesSurrogate', array_column($fields, 'inputType'), true)) {
+        if (!\is_array($fields) ||
+            !\in_array('languageDependentModulesSurrogate', array_column($fields, 'inputType'), true)
+        ) {
             return;
         }
 
@@ -97,8 +98,8 @@ class LoadDataContainerListener
 
             $GLOBALS['TL_DCA'][$table]['fields'][$key]['eval']['includeBlankOption'] = true;
             $GLOBALS['TL_DCA'][$table]['fields'][$key]['save_callback'][] = [
-                SaveCallback::class,
-                'onSave',
+                LanguageDependentModulesSurrogateListener::class,
+                'onSaveCallback',
             ];
         }
     }

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Oneup\Contao\LanguageDependentModulesBundle\Dca\Callback;
+namespace Oneup\Contao\LanguageDependentModulesBundle\EventListener;
 
 use Contao\DataContainer;
 use Contao\StringUtil;
-use Oneup\Contao\LanguageDependentModulesBundle\Dca\Provider\AvailableLanguageProvider;
+use Oneup\Contao\LanguageDependentModulesBundle\Provider\AvailableLanguageProvider;
 
-class SaveCallback
+class LanguageDependentModulesSurrogateListener
 {
     private AvailableLanguageProvider $languageProvider;
 
@@ -22,7 +22,7 @@ class SaveCallback
      *
      * @return mixed
      */
-    public function onSave($value, DataContainer $dataContainer)
+    public function onSaveCallback($value, DataContainer $dataContainer)
     {
         $values = StringUtil::deserialize($value);
 

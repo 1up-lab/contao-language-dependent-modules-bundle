@@ -1,25 +1,25 @@
 services:
     oneup.contao.language_dependent_modules_bundle.module.language_dependent_modules_surrogate:
-        class: Oneup\Contao\LanguageDependentModulesBundle\Dca\Widget\LanguageDependentModulesSurrogate
+        class: Oneup\Contao\LanguageDependentModulesBundle\Widget\LanguageDependentModulesSurrogate
         public: true
         tags:
             - { name: contao.frontend_module, category: miscellaneous }
 
     oneup.contao.language_dependent_modules_bundle.provider.available_language_provider:
-        class: Oneup\Contao\LanguageDependentModulesBundle\Dca\Provider\AvailableLanguageProvider
+        class: Oneup\Contao\LanguageDependentModulesBundle\Provider\AvailableLanguageProvider
         public: true
         arguments:
             - '@database_connection'
             - '@translator'
 
     oneup.contao.language_dependent_modules_bundle.provider.module_provider:
-        class: Oneup\Contao\LanguageDependentModulesBundle\Dca\Provider\ModuleProvider
+        class: Oneup\Contao\LanguageDependentModulesBundle\Provider\ModuleProvider
         public: true
         arguments:
             - '@database_connection'
 
-    oneup.contao.language_dependent_modules_bundle.callback.save_callback:
-        class: Oneup\Contao\LanguageDependentModulesBundle\Dca\Callback\SaveCallback
+    oneup.contao.language_dependent_modules_bundle.listener.language_dependent_modules_surrogate_listener:
+        class: Oneup\Contao\LanguageDependentModulesBundle\EventListener\LanguageDependentModulesSurrogateListener
         public: true
         arguments:
             - '@oneup.contao.language_dependent_modules_bundle.provider.available_language_provider'
