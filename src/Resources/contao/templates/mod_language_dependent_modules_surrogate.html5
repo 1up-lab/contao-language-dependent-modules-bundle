@@ -1,0 +1,3 @@
+<?php if ($this->surrogate): ?>
+    {{insert_module::<?= $this->surrogate ?>}}
+<?php endif; ?>
