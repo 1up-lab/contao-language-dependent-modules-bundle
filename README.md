@@ -1,4 +1,4 @@
-Contao Sentry Bundle
+Contao Language Dependent Modules Bundle
 ====================
 
 This Contao bundle provides an ... for Contao 4.9 and newer.
