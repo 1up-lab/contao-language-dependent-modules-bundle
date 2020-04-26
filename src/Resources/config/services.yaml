@@ -1,0 +1,37 @@
+services:
+    oneup.contao.language_dependent_modules_bundle.module.language_dependent_modules_surrogate:
+        class: Oneup\Contao\LanguageDependentModulesBundle\Dca\Widget\LanguageDependentModulesSurrogate
+        public: true
+        tags:
+            - { name: contao.frontend_module, category: miscellaneous }
+
+    oneup.contao.language_dependent_modules_bundle.provider.available_language_provider:
+        class: Oneup\Contao\LanguageDependentModulesBundle\Dca\Provider\AvailableLanguageProvider
+        public: true
+        arguments:
+            - '@database_connection'
+            - '@translator'
+
+    oneup.contao.language_dependent_modules_bundle.provider.module_provider:
+        class: Oneup\Contao\LanguageDependentModulesBundle\Dca\Provider\ModuleProvider
+        public: true
+        arguments:
+            - '@database_connection'
+
+    oneup.contao.language_dependent_modules_bundle.callback.save_callback:
+        class: Oneup\Contao\LanguageDependentModulesBundle\Dca\Callback\SaveCallback
+        public: true
+        arguments:
+            - '@oneup.contao.language_dependent_modules_bundle.provider.available_language_provider'
+
+    onup.contao.language_dependent_modules_bundle.listener.load_data_container_listener:
+        class: Oneup\Contao\LanguageDependentModulesBundle\EventListener\LoadDataContainerListener
+        public: true
+        arguments:
+            - '@oneup.contao.language_dependent_modules_bundle.provider.available_language_provider'
+            - '@oneup.contao.language_dependent_modules_bundle.provider.module_provider'
+            - '@translator'
+            - '@contao.routing.scope_matcher'
+            - '@request_stack'
+        tags:
+            - { name: contao.hook, hook: loadDataContainer }
