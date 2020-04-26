@@ -32,7 +32,7 @@ jobs:
               run: vendor/bin/phpstan analyze src/ tests/ --level=6
 
     tests:
-        name: PHP ${{ matrix.php }}
+        name: Tests on PHP ${{ matrix.php }}
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
@@ -56,7 +56,7 @@ jobs:
               run: vendor/bin/phpunit --colors=always
 
     prefer-lowest:
-        name: Prefer Lowest
+        name: Tests on prefer lowest
         runs-on: ubuntu-latest
         steps:
             - name: Setup PHP
