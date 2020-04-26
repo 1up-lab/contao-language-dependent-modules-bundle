@@ -1,0 +1,12 @@
+<?xml version="1.0" ?><xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="FMD.language_dependent_modules_surrogate.0">
+                <target>Language dependent module configuration</target>
+            </trans-unit>
+            <trans-unit id="FMD.language_dependent_modules_surrogate.1">
+                <target>Generates a language dependent module configuration.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

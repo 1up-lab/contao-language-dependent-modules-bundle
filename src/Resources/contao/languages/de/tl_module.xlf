@@ -1,0 +1,18 @@
+<?xml version="1.0" ?><xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="tl_module.module_legend">
+                <target>Modul-Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="tl_module.modules.0">
+                <target>Module</target>
+            </trans-unit>
+            <trans-unit id="tl_module.modules.1">
+                <target>Bitte weisen Sie die Module den entsprechenden Sprachen zu.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.modulesBlankOptionLabel">
+                <target>Wählen Sie das Modul für %s</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -21,12 +21,18 @@
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0",
+        "contao/news-bundle": "^4.9",
+        "contao/phpstan": "^0.12",
         "friendsofphp/php-cs-fixer": "^2.16",
         "phpstan/phpstan": "^0.12.10",
         "phpunit/phpunit": "^8.5",
         "symfony/var-dumper": "^4.4 || ^5.0"
     },
     "config": {
+        "preferred-install": {
+            "contao/core-bundle": "source",
+            "*": "dist"
+        },
         "sort-packages": true
     },
     "extra": {
