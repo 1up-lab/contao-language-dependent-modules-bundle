@@ -13,4 +13,5 @@ parameters:
         - vendor
 
     universalObjectCratesClasses:
+        - Contao\Template
         - Contao\Widget
