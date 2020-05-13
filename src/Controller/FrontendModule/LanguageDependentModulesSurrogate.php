@@ -16,7 +16,7 @@ class LanguageDependentModulesSurrogate extends AbstractFrontendModuleController
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
         $locale = $request->getLocale();
-        $modules = StringUtil::deserialize($model->modules);
+        $modules = StringUtil::deserialize($model->languageDependentModules);
 
         $template->surrogate = null;
 

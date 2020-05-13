@@ -4,13 +4,13 @@
             <trans-unit id="tl_module.module_legend">
                 <target>Module settings</target>
             </trans-unit>
-            <trans-unit id="tl_module.modules.0">
+            <trans-unit id="tl_module.languageDependentModules.0">
                 <target>Module</target>
             </trans-unit>
-            <trans-unit id="tl_module.modules.1">
+            <trans-unit id="tl_module.languageDependentModules.1">
                 <target>Please assign the modules to the corresponding languages.</target>
             </trans-unit>
-            <trans-unit id="tl_module.modulesBlankOptionLabel">
+            <trans-unit id="tl_module.languageDependentModulesBlankOptionLabel">
                 <target>Please choose your module for %s</target>
             </trans-unit>
         </body>

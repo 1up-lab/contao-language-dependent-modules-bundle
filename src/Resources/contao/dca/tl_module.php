@@ -5,12 +5,12 @@ declare(strict_types=1);
 $GLOBALS['TL_DCA']['tl_module']['palettes'] += [
     'language_dependent_modules_surrogate' => '
         {title_legend},name,type;
-        {module_legend},modules;
+        {module_legend},languageDependentModules;
     ',
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields'] += [
-    'modules' => [
+    'languageDependentModules' => [
         'inputType' => 'languageDependentModulesSurrogate',
         'eval' => [
             'tl_class' => 'w50',
