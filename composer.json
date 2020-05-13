@@ -1,9 +1,11 @@
 {
     "name": "oneup/contao-language-dependent-modules-bundle",
     "type": "contao-bundle",
-    "description": "TODO",
+    "description": "Configure your Contao modules language dependent and have less page layouts!",
     "keywords": [
-        "DOTO"
+        "contao",
+        "modules",
+        "multilanguage"
     ],
     "homepage": "https://1up.io",
     "license": "MIT",
