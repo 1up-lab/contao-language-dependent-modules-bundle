@@ -98,7 +98,7 @@ class LoadDataContainerListener
 
             $GLOBALS['TL_DCA'][$table]['fields'][$key]['eval']['includeBlankOption'] = true;
             $GLOBALS['TL_DCA'][$table]['fields'][$key]['save_callback'][] = [
-                LanguageDependentModulesSurrogateListener::class,
+                'oneup.contao.language_dependent_modules_bundle.listener.language_dependent_modules_surrogate_listener',
                 'onSaveCallback',
             ];
         }
