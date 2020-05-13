@@ -1,6 +1,6 @@
 services:
     oneup.contao.language_dependent_modules_bundle.module.language_dependent_modules_surrogate:
-        class: Oneup\Contao\LanguageDependentModulesBundle\Widget\LanguageDependentModulesSurrogate
+        class: Oneup\Contao\LanguageDependentModulesBundle\Controller\FrontendModule\LanguageDependentModulesSurrogate
         public: true
         tags:
             - { name: contao.frontend_module, category: miscellaneous }
