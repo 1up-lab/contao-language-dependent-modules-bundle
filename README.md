@@ -4,7 +4,7 @@ Contao Language Dependent Modules Bundle
 This Contao bundle provides a special module where you can configure your modules based on available languages.  
 This bundle is made for Contao 4.9 and newer.
 
-![CI](https://github.com/1up-lab/contao-language-dependent-modules-bundle/workflows/CI/badge.svg)
+[![CI](https://github.com/1up-lab/contao-language-dependent-modules-bundle/workflows/CI/badge.svg)](https://github.com/1up-lab/contao-language-dependent-modules-bundle/actions)
 [![Total Downloads](https://img.shields.io/packagist/dt/oneup/contao-language-dependent-modules-bundle.svg)](https://packagist.org/packages/oneup/contao-language-dependent-modules-bundle)
 
 
