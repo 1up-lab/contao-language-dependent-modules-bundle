@@ -17,7 +17,6 @@ class Plugin implements BundlePluginInterface
         return [
             BundleConfig::create(OneupContaoLanguageDependentModulesBundle::class)->setLoadAfter([
                 ContaoCoreBundle::class,
-                OneupContaoLanguageDependentModulesBundle::class,
             ]),
         ];
     }
