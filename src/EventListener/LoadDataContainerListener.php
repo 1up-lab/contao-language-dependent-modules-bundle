@@ -46,7 +46,7 @@ class LoadDataContainerListener
         }
 
         foreach ($fields as $key => $field) {
-            if (!array_key_exists('inputType', $field)) {
+            if (!\array_key_exists('inputType', $field)) {
                 unset($fields[$key]);
             }
         }
