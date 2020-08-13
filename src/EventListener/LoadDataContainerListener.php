@@ -45,9 +45,11 @@ class LoadDataContainerListener
             return;
         }
 
-        $total = \count($GLOBALS['TL_DCA'][$table]['fields']);
-        $inputTypes = \count(array_keys(array_column($fields, 'inputType')));
-        $diff = $total - $inputTypes;
+        foreach ($fields as $key => $field) {
+            if (!array_key_exists('inputType', $field)) {
+                unset($fields[$key]);
+            }
+        }
 
         $affectedFields = array_keys(
             array_column($fields, 'inputType'),
@@ -56,7 +58,7 @@ class LoadDataContainerListener
         );
 
         foreach ($affectedFields as $affectedField) {
-            $field = \array_slice($GLOBALS['TL_DCA'][$table]['fields'], $affectedField + $diff, 1);
+            $field = \array_slice($fields, $affectedField, 1);
             $keys = array_keys($field);
 
             if (!\count($keys)) {
