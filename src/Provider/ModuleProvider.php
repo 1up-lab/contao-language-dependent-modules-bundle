@@ -18,20 +18,21 @@ class ModuleProvider
 
     public function getModules(array $types = null): array
     {
-        $statement = $this->database->prepare('
+        $statement = $this->database->prepare("
             SELECT m.id, m.name
             FROM tl_module m
+            WHERE m.type <> 'language_dependent_modules_surrogate'
             ORDER BY m.name
-        ');
+        ");
 
         if (\is_array($types) && \count($types)) {
             $statement = $this->database->prepare(
-                sprintf('
+                sprintf("
                     SELECT m.id, m.name
                     FROM tl_module m
-                    WHERE m.type IN (%s)
+                    WHERE m.type IN (%s) AND m.type <> 'language_dependent_modules_surrogate'
                     ORDER BY m.name
-                ', $this->getTypeString($types)
+                ", $this->getTypeString($types)
                 )
             );
         }
