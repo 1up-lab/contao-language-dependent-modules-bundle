@@ -24,11 +24,11 @@ class AvailableLanguageProvider
         $languages = [];
 
         $statement = $this->connection->prepare('
-            SELECT p.* 
-            FROM tl_page p 
-            WHERE 
-                p.pid = 0 AND 
-                p.published = :published 
+            SELECT p.*
+            FROM tl_page p
+            WHERE
+                p.pid = 0 AND
+                p.published = :published
             ORDER BY p.sorting ASC
         ');
 
