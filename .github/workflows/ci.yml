@@ -44,7 +44,6 @@ jobs:
               with:
                   php-version: ${{ matrix.php }}
                   extensions: dom, fileinfo, filter, gd, hash, intl, json, mbstring, pcre, pdo, zlib
-                  tools: prestissimo
                   coverage: none
 
             - name: Checkout
@@ -64,7 +63,6 @@ jobs:
               with:
                   php-version: 7.4
                   extensions: dom, fileinfo, filter, gd, hash, intl, json, mbstring, pcre, pdo, zlib
-                  tools: prestissimo
                   coverage: none
 
             - name: Checkout
