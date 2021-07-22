@@ -66,40 +66,41 @@ class LoadDataContainerListener
             }
 
             $key = $keys[0];
+            $fieldConfig = $GLOBALS['TL_DCA'][$table]['fields'][$key];
 
-            if (!\array_key_exists('eval', $GLOBALS['TL_DCA'][$table]['fields'][$key])) {
-                $GLOBALS['TL_DCA'][$table]['fields'][$key]['eval'] = [];
+            if (!\array_key_exists('eval', $fieldConfig)) {
+                $fieldConfig['eval'] = [];
             }
 
-            if (!\array_key_exists('save_callback', $GLOBALS['TL_DCA'][$table]['fields'][$key])) {
-                $GLOBALS['TL_DCA'][$table]['fields'][$key]['save_callback'] = [];
+            if (!\array_key_exists('save_callback', $fieldConfig)) {
+                $fieldConfig['save_callback'] = [];
             }
 
-            if (!\array_key_exists('options', $GLOBALS['TL_DCA'][$table]['fields'][$key]) &&
-                !\array_key_exists('options_callback', $GLOBALS['TL_DCA'][$table]['fields'][$key])) {
+            if (!\array_key_exists('options', $fieldConfig) &&
+                !\array_key_exists('options_callback', $fieldConfig)) {
                 $types = [];
 
-                if (\array_key_exists('modules', $GLOBALS['TL_DCA'][$table]['fields'][$key]['eval'])) {
-                    $types = $GLOBALS['TL_DCA'][$table]['fields'][$key]['eval']['modules'];
+                if (\array_key_exists('modules', $fieldConfig['eval'])) {
+                    $types = $fieldConfig['eval']['modules'];
                 }
 
-                $GLOBALS['TL_DCA'][$table]['fields'][$key]['options'] = $this->moduleProvider->getModules($types);
+                $fieldConfig['options'] = $this->moduleProvider->getModules($types);
             }
 
-            if (!\array_key_exists('languages', $GLOBALS['TL_DCA'][$table]['fields'][$key]['eval'])) {
-                $GLOBALS['TL_DCA'][$table]['fields'][$key]['eval']['languages'] = $this->languageProvider->getLanguages();
+            if (!\array_key_exists('languages', $fieldConfig['eval'])) {
+                $fieldConfig['eval']['languages'] = $this->languageProvider->getLanguages();
             }
 
-            if (!\array_key_exists('blankOptionLabel', $GLOBALS['TL_DCA'][$table]['fields'][$key]['eval'])) {
-                $GLOBALS['TL_DCA'][$table]['fields'][$key]['eval']['blankOptionLabel'] = $this->translator->trans(
+            if (!\array_key_exists('blankOptionLabel', $fieldConfig['eval'])) {
+                $fieldConfig['eval']['blankOptionLabel'] = $this->translator->trans(
                     sprintf('tl_module.%sBlankOptionLabel', $key),
                     [],
                     'contao_module'
                 );
             }
 
-            $GLOBALS['TL_DCA'][$table]['fields'][$key]['eval']['includeBlankOption'] = true;
-            $GLOBALS['TL_DCA'][$table]['fields'][$key]['save_callback'][] = [
+            $fieldConfig['eval']['includeBlankOption'] = true;
+            $fieldConfig['save_callback'][] = [
                 'oneup.contao.language_dependent_modules_bundle.listener.language_dependent_modules_surrogate_listener',
                 'onSaveCallback',
             ];
