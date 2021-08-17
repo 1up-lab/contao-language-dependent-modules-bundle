@@ -104,6 +104,9 @@ class LoadDataContainerListener
                 'oneup.contao.language_dependent_modules_bundle.listener.language_dependent_modules_surrogate_listener',
                 'onSaveCallback',
             ];
+
+            // Save modified configuration back to global DCA
+            $GLOBALS['TL_DCA'][$table]['fields'][$key] = $fieldConfig;
         }
     }
 }
