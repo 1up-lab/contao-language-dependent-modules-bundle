@@ -18,6 +18,8 @@ class LanguageDependentModulesSurrogate extends SelectMenu
         /** @var array $languages */
         $languages = $this->languages;
 
+        $wizard = StringUtil::deserialize($this->wizard);
+
         foreach ($languages as $languageKey => $languageLabel) {
             $this->arrOptions[0]['label'] = sprintf($this->blankOptionLabel, $languageLabel);
             $this->strLabel = $languageLabel;
@@ -30,7 +32,7 @@ class LanguageDependentModulesSurrogate extends SelectMenu
                 ($this->strClass ? ' ' . $this->strClass : ''),
                 $this->getAttributes(),
                 implode('', $this->getOptions($languageKey)),
-                $this->wizard
+                $wizard[$languageKey] ?? ''
             );
         }
 
@@ -47,7 +49,7 @@ class LanguageDependentModulesSurrogate extends SelectMenu
 
         return static::optionSelected(
             $option['value'] ?? null,
-            $this->varValue ? $this->varValue[$option['index']] : null
+            $this->varValue[$option['index']] ?? null
         );
     }
 

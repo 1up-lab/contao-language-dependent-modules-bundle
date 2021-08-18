@@ -99,6 +99,12 @@ class LoadDataContainerListener
                 );
             }
 
+            if (!\array_key_exists('wizard', $fieldConfig)) {
+                $fieldConfig['wizard'] = [
+                    ['oneup.contao.language_dependent_modules_bundle.listener.field_wizard_listener', 'onEditModule'],
+                ];
+            }
+
             $fieldConfig['eval']['includeBlankOption'] = true;
             $fieldConfig['save_callback'][] = [
                 'oneup.contao.language_dependent_modules_bundle.listener.language_dependent_modules_surrogate_listener',
