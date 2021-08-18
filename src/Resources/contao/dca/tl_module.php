@@ -13,6 +13,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields'] += [
     'languageDependentModules' => [
         'inputType' => 'languageDependentModulesSurrogate',
         'eval' => [
+            'submitOnChange' => true,
             'tl_class' => 'w50',
         ],
         'sql' => 'blob NULL',

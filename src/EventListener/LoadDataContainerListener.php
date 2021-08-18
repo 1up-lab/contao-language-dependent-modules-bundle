@@ -76,6 +76,10 @@ class LoadDataContainerListener
                 $fieldConfig['save_callback'] = [];
             }
 
+            if (!\array_key_exists('wizard', $fieldConfig)) {
+                $fieldConfig['wizard'] = [];
+            }
+
             if (!\array_key_exists('options', $fieldConfig) &&
                 !\array_key_exists('options_callback', $fieldConfig)) {
                 $types = [];
@@ -100,9 +104,15 @@ class LoadDataContainerListener
             }
 
             $fieldConfig['eval']['includeBlankOption'] = true;
+
             $fieldConfig['save_callback'][] = [
                 'oneup.contao.language_dependent_modules_bundle.listener.language_dependent_modules_surrogate_listener',
                 'onSaveCallback',
+            ];
+
+            $fieldConfig['wizard'][] = [
+                'oneup.contao.language_dependent_modules_bundle.listener.field_wizard_listener',
+                'onEditModule',
             ];
 
             // Save modified configuration back to global DCA

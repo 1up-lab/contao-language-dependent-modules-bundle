@@ -35,3 +35,11 @@ services:
             - '@request_stack'
         tags:
             - { name: contao.hook, hook: loadDataContainer }
+
+    oneup.contao.language_dependent_modules_bundle.listener.field_wizard_listener:
+        class: Oneup\Contao\LanguageDependentModulesBundle\EventListener\FieldWizardListener
+        public: true
+        arguments:
+            - '@translator'
+            - '@contao.csrf.token_manager'
+            - '%contao.csrf_token_name%'
