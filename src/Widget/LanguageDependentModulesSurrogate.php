@@ -41,11 +41,14 @@ class LanguageDependentModulesSurrogate extends SelectMenu
 
     protected function isSelected($option): string
     {
-        if (empty($this->varValue) && empty($_POST) && $option['default']) {
+        if (empty($this->varValue) && empty($_POST) && ($arrOption['default'] ?? null)) {
             return static::optionSelected((string) 1, 1);
         }
 
-        return static::optionSelected($option['value'], $this->varValue[$option['index']]);
+        return static::optionSelected(
+            $option['value'] ?? null,
+            $this->varValue ? $this->varValue[$option['index']] : null
+        );
     }
 
     private function getOptions(string $index): array
