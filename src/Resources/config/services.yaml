@@ -24,7 +24,7 @@ services:
         arguments:
             - '@oneup.contao.language_dependent_modules_bundle.provider.available_language_provider'
 
-    onup.contao.language_dependent_modules_bundle.listener.load_data_container_listener:
+    oneup.contao.language_dependent_modules_bundle.listener.load_data_container_listener:
         class: Oneup\Contao\LanguageDependentModulesBundle\EventListener\LoadDataContainerListener
         public: true
         arguments:
