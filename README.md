@@ -118,9 +118,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields'] += [
         'inputType' => 'languageDependentModulesSurrogate',
         'eval' => [
             'tl_class' => 'w50',
-            'eval' = > [
-                'blankOptionLabel' => 'My Label'
-            ],
+            'blankOptionLabel' => 'My Label'
         ],
         'sql' => 'blob NULL',
     ],
