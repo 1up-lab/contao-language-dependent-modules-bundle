@@ -125,4 +125,4 @@ $GLOBALS['TL_DCA']['tl_module']['fields'] += [
 ];
 ```
 
-_Note:_ If you just want to change the label for the blank option of the default field, the key is: `tl.module.languageDependentModulesBlankOptionLabel`.
+_Note:_ If you just want to change the label for the blank option of the default field, the key is: `tl_module.languageDependentModulesBlankOptionLabel`.
