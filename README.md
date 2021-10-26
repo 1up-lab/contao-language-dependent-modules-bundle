@@ -95,14 +95,12 @@ $GLOBALS['TL_DCA']['tl_module']['fields'] += [
         'inputType' => 'languageDependentModulesSurrogate',
         'eval' => [
             'tl_class' => 'w50',
-            'eval' = > [
-                'modules' => [
-                    'navigation',
-                    'customnav',
-                    'search',
-                    'html',
-                    'myCustomModule',
-                ],
+            'modules' => [
+                'navigation',
+                'customnav',
+                'search',
+                'html',
+                'myCustomModule',
             ],
         ],
         'sql' => 'blob NULL',
