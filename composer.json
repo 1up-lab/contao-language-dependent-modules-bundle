@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": "^7.4 | ^8.0",
-        "contao/core-bundle": "^4.9"
+        "contao/core-bundle": "^4.9, <4.13"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0",
@@ -29,6 +29,9 @@
         "phpstan/phpstan": "^0.12.10",
         "phpunit/phpunit": "^8.5",
         "symfony/var-dumper": "^4.4 || ^5.0"
+    },
+    "conflict": {
+        "doctrine/dbal": ">=3.0"
     },
     "config": {
         "preferred-install": {
