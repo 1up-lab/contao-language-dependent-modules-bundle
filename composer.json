@@ -39,7 +39,11 @@
             "contao/core-bundle": "source",
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "contao/manager-plugin": true
+        }
     },
     "extra": {
         "contao-manager-plugin": "Oneup\\Contao\\LanguageDependentModulesBundle\\ContaoManager\\Plugin"
