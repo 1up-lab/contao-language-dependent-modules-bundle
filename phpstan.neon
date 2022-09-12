@@ -1,6 +1,3 @@
-includes:
-        - vendor/contao/phpstan/extension.neon
-
 parameters:
     bootstrapFiles:
         - %rootDir%/../../../vendor/autoload.php
