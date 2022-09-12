@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Oneup\Contao\LanguageDependentModulesBundle\Provider;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\FetchMode;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AvailableLanguageProvider
@@ -33,13 +32,12 @@ class AvailableLanguageProvider
         ');
 
         $statement->bindValue(':published', $published);
-        $statement->execute();
+        $rootPages = $statement->executeQuery()->fetchAllAssociative();
 
-        $rootPages = $statement->fetchAll(FetchMode::STANDARD_OBJECT);
-
+        /** @var array $rootPage */
         foreach ($rootPages as $rootPage) {
-            $languages[$rootPage->language] = $this->translator->trans(
-                sprintf('LNG.%s', $rootPage->language),
+            $languages[$rootPage['language']] = $this->translator->trans(
+                sprintf('LNG.%s', $rootPage['language']),
                 [],
                 'contao_languages'
             );

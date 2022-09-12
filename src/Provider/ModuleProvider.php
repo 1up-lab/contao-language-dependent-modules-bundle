@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Oneup\Contao\LanguageDependentModulesBundle\Provider;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\FetchMode;
 
 class ModuleProvider
 {
@@ -27,24 +26,24 @@ class ModuleProvider
 
         if (\is_array($types) && \count($types)) {
             $statement = $this->database->prepare(
-                sprintf("
-                    SELECT m.id, m.name
-                    FROM tl_module m
-                    WHERE m.type IN (%s) AND m.type <> 'language_dependent_modules_surrogate'
-                    ORDER BY m.name
-                ", $this->getTypeString($types)
+                sprintf(
+                    "
+                        SELECT m.id, m.name
+                        FROM tl_module m
+                        WHERE m.type IN (%s) AND m.type <> 'language_dependent_modules_surrogate'
+                        ORDER BY m.name
+                    ",
+                    $this->getTypeString($types)
                 )
             );
         }
 
-        $statement->execute();
-        $modules = $statement->fetchAll(FetchMode::STANDARD_OBJECT);
+        $modules = $statement->executeQuery()->fetchAllAssociative();
 
         $list = [];
 
-        /** @var \stdClass $module */
         foreach ($modules as $module) {
-            $list[$module->id] = $module->name;
+            $list[$module['id']] = $module['name'];
         }
 
         return $list;

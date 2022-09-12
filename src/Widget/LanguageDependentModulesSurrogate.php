@@ -18,6 +18,7 @@ class LanguageDependentModulesSurrogate extends SelectMenu
         /** @var array $languages */
         $languages = $this->languages;
 
+        /** @var array $wizard */
         $wizard = StringUtil::deserialize($this->wizard);
 
         foreach ($languages as $languageKey => $languageLabel) {
@@ -29,7 +30,7 @@ class LanguageDependentModulesSurrogate extends SelectMenu
                 $this->strName,
                 sprintf('%s-%s', $this->strId, $languageLabel),
                 $cssClasses,
-                ($this->strClass ? ' ' . $this->strClass : ''),
+                $this->strClass ? ' ' . $this->strClass : '',
                 $this->getAttributes(),
                 implode('', $this->getOptions($languageKey)),
                 $wizard[$languageKey] ?? ''
@@ -41,10 +42,13 @@ class LanguageDependentModulesSurrogate extends SelectMenu
         return implode('', $fields);
     }
 
+    /**
+     * @param array $option
+     */
     protected function isSelected($option): string
     {
         if (empty($this->varValue) && empty($_POST) && ($option['default'] ?? null)) {
-            return static::optionSelected((string) 1, 1);
+            return static::optionSelected('1', 1);
         }
 
         return static::optionSelected(

@@ -27,6 +27,8 @@ class FieldWizardListener
     public function onEditModule(DataContainer $dc): string
     {
         $wizards = [];
+
+        /** @var array $values */
         $values = StringUtil::deserialize($dc->value, true);
 
         if (empty($values)) {

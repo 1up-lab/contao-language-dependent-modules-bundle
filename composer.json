@@ -19,26 +19,29 @@
     ],
     "require": {
         "php": "^7.4 | ^8.0",
-        "contao/core-bundle": "^4.9, <4.13"
+        "contao/core-bundle": "^4.9",
+        "doctrine/dbal": "^2.13 || ^3.0"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0",
         "contao/news-bundle": "^4.9",
-        "contao/phpstan": "^0.12.7",
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "phpstan/phpstan": "^0.12.10",
-        "phpunit/phpunit": "^8.5",
-        "symfony/var-dumper": "^4.4 || ^5.0"
-    },
-    "conflict": {
-        "doctrine/dbal": ">=3.0"
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-doctrine": "^1.0",
+        "phpstan/phpstan-symfony": "^1.0",
+        "phpunit/phpunit": "^9.5"
     },
     "config": {
         "preferred-install": {
             "contao/core-bundle": "source",
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "contao/manager-plugin": true,
+            "ocramius/package-versions": true
+        }
     },
     "extra": {
         "contao-manager-plugin": "Oneup\\Contao\\LanguageDependentModulesBundle\\ContaoManager\\Plugin"
