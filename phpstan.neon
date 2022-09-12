@@ -1,15 +1,23 @@
+includes:
+    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+
 parameters:
     bootstrapFiles:
         - %rootDir%/../../../vendor/autoload.php
 
-    contao:
-        services_yml_path: %rootDir%/../../../vendor/contao/core-bundle/src/Resources/config/services.yml
-
     checkMissingIterableValueType: false
+    reportUnmatchedIgnoredErrors: false
 
-    excludes_analyse:
+    excludePaths:
         - vendor
 
     universalObjectCratesClasses:
+        - Contao\ModuleModel
         - Contao\Template
         - Contao\Widget
+
+    ignoreErrors:
+        -
+            message: '#Cannot access offset mixed on mixed\.#'
+            path: %currentWorkingDirectory%/src/Widget/LanguageDependentModulesSurrogate.php

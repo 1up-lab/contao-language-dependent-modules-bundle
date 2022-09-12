@@ -7,11 +7,16 @@ $finder = PhpCsFixer\Finder::create()
 $config = new PhpCsFixer\Config();
 return $config
     ->setRules([
+        '@DoctrineAnnotation' => true,
         '@Symfony' => true,
         '@Symfony:risky' => true,
         '@PHP71Migration' => true,
         '@PHP71Migration:risky' => true,
+        '@PHP73Migration' => true,
+        '@PHP74Migration' => true,
+        '@PHP74Migration:risky' => true,
         '@PHPUnit60Migration:risky' => true,
+        '@PHPUnit75Migration:risky' => true,
         'align_multiline_comment' => true,
         'array_syntax' => ['syntax' => 'short'],
         'concat_space' => [
@@ -20,9 +25,11 @@ return $config
         'combine_consecutive_issets' => false,
         'combine_consecutive_unsets' => false,
         'general_phpdoc_annotation_remove' => [
-            'author',
-            'expectedException',
-            'expectedExceptionMessage',
+            'annotations' => [
+                'author',
+                'expectedException',
+                'expectedExceptionMessage',
+            ],
         ],
         'heredoc_to_nowdoc' => true,
         'linebreak_after_opening_tag' => true,

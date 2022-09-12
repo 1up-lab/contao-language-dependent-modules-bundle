@@ -26,12 +26,14 @@ class ModuleProvider
 
         if (\is_array($types) && \count($types)) {
             $statement = $this->database->prepare(
-                sprintf("
-                    SELECT m.id, m.name
-                    FROM tl_module m
-                    WHERE m.type IN (%s) AND m.type <> 'language_dependent_modules_surrogate'
-                    ORDER BY m.name
-                ", $this->getTypeString($types)
+                sprintf(
+                    "
+                        SELECT m.id, m.name
+                        FROM tl_module m
+                        WHERE m.type IN (%s) AND m.type <> 'language_dependent_modules_surrogate'
+                        ORDER BY m.name
+                    ",
+                    $this->getTypeString($types)
                 )
             );
         }

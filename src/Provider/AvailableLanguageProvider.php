@@ -34,6 +34,7 @@ class AvailableLanguageProvider
         $statement->bindValue(':published', $published);
         $rootPages = $statement->executeQuery()->fetchAllAssociative();
 
+        /** @var array $rootPage */
         foreach ($rootPages as $rootPage) {
             $languages[$rootPage['language']] = $this->translator->trans(
                 sprintf('LNG.%s', $rootPage['language']),
