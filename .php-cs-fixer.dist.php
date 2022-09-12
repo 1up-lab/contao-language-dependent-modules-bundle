@@ -4,7 +4,8 @@ $finder = PhpCsFixer\Finder::create()
     ->in([__DIR__.'/src', __DIR__.'/tests'])
 ;
 
-return PhpCsFixer\Config::create()
+$config = new PhpCsFixer\Config();
+return $config
     ->setRules([
         '@Symfony' => true,
         '@Symfony:risky' => true,
