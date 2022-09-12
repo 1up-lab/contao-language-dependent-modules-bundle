@@ -42,7 +42,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "contao-components/installer": true,
-            "contao/manager-plugin": true
+            "contao/manager-plugin": true,
+            "ocramius/package-versions": true
         }
     },
     "extra": {
