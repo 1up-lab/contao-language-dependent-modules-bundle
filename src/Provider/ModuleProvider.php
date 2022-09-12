@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Oneup\Contao\LanguageDependentModulesBundle\Provider;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\FetchMode;
 
 class ModuleProvider
 {
@@ -37,14 +36,12 @@ class ModuleProvider
             );
         }
 
-        $statement->execute();
-        $modules = $statement->fetchAll(FetchMode::STANDARD_OBJECT);
+        $modules = $statement->executeQuery()->fetchAllAssociative();
 
         $list = [];
 
-        /** @var \stdClass $module */
         foreach ($modules as $module) {
-            $list[$module->id] = $module->name;
+            $list[$module['id']] = $module['name'];
         }
 
         return $list;
